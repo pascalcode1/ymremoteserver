@@ -13,7 +13,11 @@ public enum Command {
 
     LIKE("like", "Поставить лайк"),
 
-    DISLIKE("dislike", "Поставить дислайк");
+    DISLIKE("dislike", "Поставить дислайк"),
+
+    RADIO("radio", "Перейти на вкладку \"Радио\""),
+
+    SEARCH("search", "переход в режим поиска");
 
     private static final String LINK_PREFIX = "yandexmusic://";
 

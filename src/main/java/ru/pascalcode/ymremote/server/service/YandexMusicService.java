@@ -8,11 +8,11 @@ import java.util.Arrays;
 
 @Slf4j
 @Service
-public class SendCommandService {
+public class YandexMusicService {
 
-    public boolean sendCommand(String code) {
+    public void sendCommand(String code) {
         log.info("Sending command to Yandex Music");
-        return DesktopApi.browse(getCommandByCode(code));
+        DesktopApi.execCommand(getCommandByCode(code));
     }
 
     public static Command getCommandByCode(String code) {
