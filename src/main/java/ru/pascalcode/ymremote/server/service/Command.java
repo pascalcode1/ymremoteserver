@@ -5,6 +5,8 @@ import lombok.Getter;
 @Getter
 public enum Command {
 
+    EMPTY("", "Обращение к яндекс музыки без комманд"),
+
     PLAY_PAUSE("playpause", "Воспроизведение / пауза"),
 
     NEXT("next", "Следующий трек"),

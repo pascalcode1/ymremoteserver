@@ -89,7 +89,7 @@ public class EnvironmentService {
     }
 
     public void runScreenSaver() {
-        DesktopApi.execCommand("C:\\Windows\\System32\\geiss.scr");
+        DesktopApi.execCommand("explorer C:\\Windows\\System32\\screensaver.scr");
     }
 
 }

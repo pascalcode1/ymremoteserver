@@ -22,7 +22,7 @@ public class YandexMusicController {
     public void sendToYandexMusic(@PathVariable String code,
                                   @PathVariable(required = false) String keys) {
         if (YandexMusicService.getCommandByCode(code).equals(Command.RADIO)) {
-            yandexMusicService.sendCommand(code);
+            yandexMusicService.sendCommand("");
             //KOSTYL: Вынужден закрыть приложение яндекс музыки чтоб все дальнейшие нажатия были предсказуемыми.
             environmentService.sendCommand("1Q");
             //Следующей строкой яндекс музыка стартанёт по новой.
