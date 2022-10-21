@@ -23,16 +23,30 @@ public class EnvironmentService {
         this.robot = new Robot();
     }
 
+    public void volumeUp() {
+        callVolumeSlider();
+        sendCommand("0UUUUUE");
+    }
+
+    public void volumeDown() {
+        callVolumeSlider();
+        sendCommand("0DDDDDE");
+    }
+
+    private void callVolumeSlider() {
+        DesktopApi.execCommand("C:\\Windows\\System32\\SndVol.exe -f 49825268");
+    }
+
     public void sendCommand(String keys) {
         log.info("Sending keys press commands to environment");
         char[] keysArray = keys.toUpperCase().toCharArray();
         for (int i = 0; i < keysArray.length; i++) {
             char key = keysArray[i];
-            defineKey(key);
+            executeKeyEvent(key);
         }
     }
 
-    private void defineKey(char key) {
+    private void executeKeyEvent(char key) {
         if (Character.isDigit(key)) {
             int delayInSeconds = Integer.parseInt(Character.toString(key));
             if (delayInSeconds == 0) {
@@ -80,12 +94,7 @@ public class EnvironmentService {
 
     private void pressKey(int event) {
         robot.keyPress(event);
-
         robot.keyRelease(event);
-    }
-
-    public void callVolumeSlider() {
-        DesktopApi.execCommand("C:\\Windows\\System32\\SndVol.exe -f 49825268");
     }
 
     public void runScreenSaver() {
